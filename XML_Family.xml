@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE packages [
+<!ELEMENT packages (package*)>
+<!--
+**** Lachlan Court
+**** c3308061
+**** SENG1050 Assignment 1
+**** 17/09/2020
+-->
+	<!ELEMENT package (packageName, description, cost, nights, popularity, accommodationOptions+, highlights+, couponCode?, reviews*, images+, externalUrl, contactDetails?)>
+		<!ATTLIST package type CDATA #REQUIRED>
+		<!ELEMENT packageName (#PCDATA)>
+		<!ELEMENT description (#PCDATA)>
+		<!ELEMENT cost (#PCDATA)>
+		<!ELEMENT nights (#PCDATA)>
+		<!ELEMENT popularity (#PCDATA)>
+		<!ELEMENT accommodationOptions (location, additionalCost?)>
+			<!ELEMENT location (#PCDATA)>
+			<!ELEMENT additionalCost (#PCDATA)>
+		<!ELEMENT highlights (#PCDATA)>
+		<!ELEMENT couponCode (#PCDATA)>
+		<!ELEMENT reviews (#PCDATA)>
+		<!ELEMENT images (#PCDATA)>
+		<!ELEMENT externalUrl (#PCDATA)>
+		<!ELEMENT contactDetails (contactName, contactNumber, contactEmail)>
+			<!ELEMENT contactName (#PCDATA)>
+			<!ELEMENT contactNumber (#PCDATA)>
+			<!ELEMENT contactEmail (#PCDATA)>
+			
+		<!ENTITY p5 "5 stars">
+		<!ENTITY p4 "4 stars">
+		<!ENTITY p3 "3 stars">
+		<!ENTITY p2 "2 stars">
+		<!ENTITY p1 "1 stars">
+]>
+
+<packages>
+	<package type="snow">
+		<packageName>Winter Wonderland</packageName>
+		<description>
+			This trip will take you and your family to a magical world of snowy excitement. Perfect for kids of any age with a range of activities available. You will get the opportunity
+			to go toboganning, skiing, snow shoeing, snow play, with a flexible package option, the choice is yours to make this holiday what you want it to be. Included in this package
+			is accommodation at a resort right on the snowfields. Walk out the door in the morning straight onto the slopes and take in the crisp morning air of life on the snow. The
+			Winter Wonderland is yours for the taking, contact us now and get experiencing!
+		</description>
+		<cost>1500</cost>
+		<nights>5</nights>
+		<popularity>&p4;</popularity>
+		<accommodationOptions>
+			<location>Dorm room</location>
+		</accommodationOptions>
+		<accommodationOptions>
+			<location>Private room</location>
+			<additionalCost>200</additionalCost>
+		</accommodationOptions>
+		<accommodationOptions>
+			<location>Private room with ensuite</location>
+			<additionalCost>400</additionalCost>
+		</accommodationOptions>
+		<highlights>Toboganning</highlights>
+		<highlights>Skiing</highlights>
+		<highlights>Snow Shoeing</highlights>
+		<highlights>Snow play</highlights>
+		<couponCode></couponCode>
+		<reviews>Very good!</reviews>
+		<images>images/snow.jpg</images>
+		<externalUrl>https://www.perisher.com.au/</externalUrl>
+		<contactDetails>
+			<contactName>Sam Waters</contactName>
+			<contactNumber>0413423264</contactNumber>
+			<contactEmail>sam.waters@goholiday.com.au</contactEmail>
+		</contactDetails>
+	</package>
+
+	<package type="coast">
+		<packageName>Coastal Getaway</packageName>
+		<description>
+			A perfect coastal holiday for a family of any size. Plenty of space for kids to run around and spend some energy while the parents can sit back and relax. The choice is yours when
+			it comes to how you spend yuor time, whether you build sandcastles, swimming, or even try your hand at surfing. Check out the famous coral reefs along the East Coast of Australia
+			while out snorkelling, or test your abilities and sign up to do a scuba course. Whatever you like to do at the beach, we've got you covered. Sign up now to have the most relaxing
+			holiday away you've ever had.
+		</description>
+		<cost>1000</cost>
+		<nights>4</nights>
+		<popularity>&p4;</popularity>
+		<accommodationOptions>
+			<location>Dorm room</location>
+			<additionalCost>0</additionalCost>
+		</accommodationOptions>
+		<accommodationOptions>
+			<location>Private room</location>
+			<additionalCost>100</additionalCost>
+		</accommodationOptions>
+		<accommodationOptions>
+			<location>Private room with ensuite</location>
+			<additionalCost>200</additionalCost>
+		</accommodationOptions>
+		<highlights>Swimming</highlights>
+		<highlights>Surfing</highlights>
+		<highlights>Snorkelling</highlights>
+		<highlights>Scuba</highlights>
+		<couponCode></couponCode>
+		<reviews>Great beach!</reviews>
+		<images>images/beach.jpg</images>
+		<externalUrl>https://www.visitnsw.com/destinations/south-coast/batemans-bay-and-eurobodalla/batemans-bay</externalUrl>
+		<contactDetails>
+			<contactName>Peter Styles</contactName>
+			<contactNumber>0476529453</contactNumber>
+			<contactEmail>peter.styles@goholiday.com.au</contactEmail>
+		</contactDetails>
+	</package>
+	
+	<package type="entertainment">
+		<packageName>A Weekend at Dreamworld</packageName>
+		<description>
+			Get ready for the time of your life as you get immersed into a whirlwind of shows and activities, rides and music. Perfect for people of any ages, a trip to Dreamworld is just what
+			you need to keep the kids entertained and use up some excess energy. This holiday includes a weekend pass for four people to Dreamworld theme park, as well as tickets to get up close
+			and personal with some big cats at Tiger Island. With a hundreds of ways to spend the day, you're bound to find something to entertain everyone and have a thrilling and enjoyable weekend
+			away.
+		</description>
+		<cost>2500</cost>
+		<nights>2</nights>
+		<popularity>&p5;</popularity>
+		<accommodationOptions>
+			<location>Cabin</location>
+			<additionalCost>0</additionalCost>
+		</accommodationOptions>
+		<accommodationOptions>
+			<location>Hostel</location>
+			<additionalCost>200</additionalCost>
+		</accommodationOptions>
+		<accommodationOptions>
+			<location>Hotel</location>
+			<additionalCost>400</additionalCost>
+		</accommodationOptions>
+		<highlights>Thrill Rides</highlights>
+		<highlights>Tiger Island</highlights>
+		<highlights>Family Rides</highlights>
+		<couponCode></couponCode>
+		<reviews>So much fun! Great for families</reviews>
+		<images>images/dreamworld.jpg</images>
+		<externalUrl>https://www.dreamworld.com.au/</externalUrl>
+		<contactDetails>
+			<contactName>Sarah Trello</contactName>
+			<contactNumber>0458239646</contactNumber>
+			<contactEmail>sarah.trello@goholiday.com.au</contactEmail>
+		</contactDetails>
+	</package>
+</packages>
