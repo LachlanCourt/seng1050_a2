@@ -1,0 +1,211 @@
+<!--
+**** Lachlan Court
+**** c3308061
+**** SENG1050 Assignment 1
+**** 17/09/2020
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>goHoliday - Suggest a Holiday!</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	
+	<style>
+		div {
+			background-color: #DDDDFF;
+		}
+	</style>
+	
+	<script type="text/javascript">
+        function checkNameYear() 
+        {
+			if (window.document.easyform.yourName.value == "")
+			{
+				alert("Name cannot be empty");
+				return false;
+			}
+			if (window.document.easyform.email.value == "")
+			{
+				alert("Email cannot be empty");
+				return false;
+			}
+			var emailInput = window.document.easyform.email.value;
+			var emailVerified = true;
+			var checkStatus = 0;
+			var TLD = "";
+			for (var i = 0; i < emailInput.length;i++) {
+				if (emailInput[i] == "@")
+				{	
+					if (checkStatus == 0)
+					{
+						checkStatus = 1;
+					}
+					else
+					{
+						emailVerified = false;
+					}
+				}
+				if (checkStatus == 2)
+				{
+					TLD += emailInput[i];
+				}
+				if ((checkStatus == 1) && (emailInput[i] == "."))
+				{
+					checkStatus = 2;
+				}
+				
+			}
+			var validDomains = ["com", "com.au", "net", "org", "gov"];
+			var validDomain = true;
+			if ((checkStatus != 2) || (!validDomain))
+			{
+				emailVerified = false;
+			}
+			
+			if (!emailVerified)
+			{
+				alert("Please enter a valid email address");
+				return false;
+			}
+			
+			if (window.document.easyform.message.value == "")
+			{
+				alert("Message cannot be empty");
+				return false;
+			}
+			return true;
+        }      
+      </script>
+	
+</head>
+
+<body>
+
+	<!-- Menu for page navigation with relative URLs -->
+	<nav>
+		<header>
+			<a href="#pack1" class="menuButton">North Sea Crossing</a>
+			<a href="#pack2" class="menuButton">Crewmans's Capers</a>
+			<a href="#pack3" class="menuButton">Day Skipper Escapade</a>
+			<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
+			<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
+			<a href="#contactForm" class="menuButton">Contact us</a>
+		</header>
+	</nav>
+
+	<!-- Welcome heading, centred, with caps class to make h1 all capital letters -->
+	<h1 class="caps">send us your holiday suggestions!</h1>
+	<hr style="margin-bottom:3%">
+	
+	<!--
+Information about the suggested holiday - Include at least the following:
+Name of the holiday
+A dropdown box for the user to indicate the category of the holiday i.e. beach, luxury, adventure, etc.
+A textfield for the user to enter a description.
+Checkboxes to indicate whether accommodation pricing is included, whether a coupon code is known, or any other property that you have listed in Assignment 1.
+	-->
+	
+	
+	<div>
+		<br/><span class="basicFormatting" id="indent">Let us know where you want to travel!</span>
+		<form style="margin:1%; margin-top:0%; padding:2%;" name="easyform" method="post" action="http://jkorpela.fi/cgi-bin/echo.cgi" onSubmit="return checkNameYear()">
+			<input type="hidden" name="_recipient" value="guest1@cs.wellesley.edu">
+				   
+			<div>
+				<label for="yourName">Please enter your full name</label>
+				<input type="text" placeholder="eg. Sam Smith" name="yourName" id="yourName">
+			</div>
+			
+			<div>
+				<label for="email">Please enter your email address</label>
+				<input type="text" placeholder="example@domain.com" name="email" id="email">
+			</div>
+			
+			<div>
+				<label for="numberHolidays">How many holidays have you submitted to us in the past using this form?</label>
+				<div id="numberHolidays">
+                    <select name="numberHolidays">
+                        <option>--select one--</option>
+                        <option>0</option>
+                        <option>1-5</option>
+                        <option>6-10</option>
+                        <option>10+</option>
+                    </select>
+                </div>
+			</div>
+					
+			<div>
+				<label for="recentHoliay">Have you been on a holiday in the past 5 years?</label>
+				<div id="recentHoliay">
+					<label for="recentHoliay">Yes</label>
+					<input type="radio" name="recentHoliay" value="Yes" id="recentHoliay" checked><br>
+
+					<label for="recentHoliay">No</label>
+					<input type="radio" name="recentHoliay" value="No" id="recentHoliay"><br>
+				</div>
+			</div>
+			
+			<div>
+				<label for="holidayName">Please enter a suggested name for the holiday</label>
+				<input type="text" placeholder="eg. Winter Wonderland" name="holidayName" id="holidayName">
+			</div>
+			
+			<div>
+				<label for="numberHolidays">Which category best describes the proposed holiday?</label>
+				<div id="numberHolidays">
+                    <select name="numberHolidays">
+                        <option>--select one--</option>
+                        <option>Adventure</option>
+						 <option>Beach</option>
+						<option>Budget</option>
+						<option>Cruise</option>
+                        <option>Family</option>
+						<option>Honeymoon</option>
+                        <option>Luxury</option>
+						<option>Season</option>
+						<option>Other</option>
+                    </select>
+                </div>
+			</div>
+
+			<div>
+				<label for="holidayDescription">Tell us about the holiday</label><br/>
+				<textarea rows="10" cols="40" placeholder="Type your message here" name="holidayDescription" id="holidayDescription"></textarea>
+			</div>
+			
+			<div>
+				Accommodation pricing is included
+				<input type="checkbox" name="accommodationIncluded" value="yes" id="yes">
+			</div>
+			
+			<div>
+				I have a coupon code
+				<input type="checkbox" name="couponCodeGot" value="yes" id="yes">
+			</div>
+			
+			
+			
+			<input type="submit" value="Click Here to Submit"> 
+			<input type="reset">   
+		</form>	
+		<span class="basicFormatting" id="indent">Alternatively, Contact us another way!</span><br/>
+		<strong id="indent">Phone:</strong>
+		<span class="basicFormatting">6112 3456</span><br/>
+		<strong id="indent">Mail:</strong>
+		<span class="basicFormatting">130 University Drive, Callaghan, 2308</span><br/>
+	</div>
+
+	<hr>
+
+	<!-- Contact details, aligned right -->
+	<address id="contactForm">
+		&#169; 2020 Lachlan Court<br>
+		c3308061<br>
+		<a href="mailto:c3308061@uon.edu.au">Contact us</a><br>
+		Bachelor of Computer Science<br>
+		Website created for <a href="https://www.newcastle.edu.au/course/SENG1050">UON SENG1050</a> Assignment 2
+	</address>
+</body>
+</html>

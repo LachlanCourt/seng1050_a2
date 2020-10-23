@@ -17,6 +17,7 @@ body {
 	/* Font and colour definition */
 	font-family: "times new roman", "helvetica", serif;
 	color: #000099;
+	font-size:11pt;
 }
 
 /* Define style for header tag */
@@ -97,7 +98,7 @@ p.welcome {
 	text-align: justify;	
 }
 
-p.xsl {
+p.noMargin {
 	margin-left: 10%;
 	margin-right: 10%;
 	width: 80%;
@@ -218,17 +219,22 @@ span.xslBreak {
 	padding:5px;
 }
 
-span.xslPackageDetails {
+span.basicFormatting {
 	background-color:#DDDDFF;
-	color: #000099
+	color: #000099;
 	margin: 0%;
-	margin-left: 1%;
+	margin-left: 0%;
 	padding: 0%;
 	border-radius: 0%;
+	font-size: 11pt;
 }
 
 #indent {
 	margin-left: 3%;
+}
+
+hr {
+	border-color: #DD00DD;
 }
 
 

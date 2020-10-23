@@ -14,12 +14,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 			
 			
 			<style>
-			hr 
-			{
-				border-color: #DD00DD;
-			}
+				
 			
-	</style>
+			</style>
 			
 		  </head>
 		  <body>
@@ -46,7 +43,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	
 	<h3 style="margin-left: 10%;"><xsl:value-of select="packageName"/><xsl:text> </xsl:text></h3>
-	<p class="xsl">
+	<p class="noMargin">
 		<img alt="">
 			<xsl:attribute name="src">
 			<xsl:value-of select="images"/>
@@ -83,7 +80,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 		
 		<strong><xsl:text>Reviews: </xsl:text></strong><br/>
 		<xsl:for-each select="reviews">
-			<span class="xslPackageDetails"></span><xsl:text></xsl:text><xsl:value-of select="."/><xsl:text> </xsl:text><br/>
+			<span class="basicFormatting" id="indent"></span><xsl:text></xsl:text><xsl:value-of select="."/><xsl:text> </xsl:text><br/>
 		</xsl:for-each>
 		
 		<strong><xsl:text>Learn More: </xsl:text></strong>
