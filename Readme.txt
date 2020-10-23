@@ -1,6 +1,6 @@
 Lachlan Court
 c3308061
-SENG1050 Assignment 1
+SENG1050 Assignment 2
 17/09/2020
 
 Included Files:
@@ -38,3 +38,7 @@ https://www.perisher.com.au/
 https://www.visitnsw.com/destinations/south-coast/batemans-bay-and-eurobodalla/batemans-bay
 https://www.dreamworld.com.au/
 https://www.newcastle.edu.au/course/SENG1050
+
+Changes to XML:
+Changed package "Type" to match whether it was an Adventure Holiday or a Family Holiday rather
+than being too specific. This way the package type could be used to change the heading on the category page

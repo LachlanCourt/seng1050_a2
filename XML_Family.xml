@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><!DOCTYPE packages [
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="holiday-xslt.xsl" type="text/xsl"?>
+
+<!DOCTYPE packages [
 <!ELEMENT packages (package*)>
 <!--
 **** Lachlan Court
@@ -34,7 +37,7 @@
 ]>
 
 <packages>
-	<package type="snow">
+	<package type="family">
 		<packageName>Winter Wonderland</packageName>
 		<description>
 			This trip will take you and your family to a magical world of snowy excitement. Perfect for kids of any age with a range of activities available. You will get the opportunity
@@ -71,7 +74,7 @@
 		</contactDetails>
 	</package>
 
-	<package type="coast">
+	<package type="family">
 		<packageName>Coastal Getaway</packageName>
 		<description>
 			A perfect coastal holiday for a family of any size. Plenty of space for kids to run around and spend some energy while the parents can sit back and relax. The choice is yours when
@@ -109,7 +112,7 @@
 		</contactDetails>
 	</package>
 	
-	<package type="entertainment">
+	<package type="family">
 		<packageName>A Weekend at Dreamworld</packageName>
 		<description>
 			Get ready for the time of your life as you get immersed into a whirlwind of shows and activities, rides and music. Perfect for people of any ages, a trip to Dreamworld is just what

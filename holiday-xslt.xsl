@@ -7,56 +7,35 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
 	   <html>
 		 <head>	
-		 
-			<title>Banana Airline Bookings</title>		
-			<meta charset="UTF-8" />
+				
+			<title>GoHoliday Travel Packages</title>	
+			<link rel="stylesheet" type="text/css" href="style.css" />	
+			<meta charset="UTF-8" />		
+			
 			
 			<style>
-			body {
-			background-color: black;
-			color: white;
-			}
-			
-			#label {
-			font-weight: bold;
-			color: blue;
-			}
-			
-			#indent{
-			color: purple;
-			font-weight: bold;
-			margin-left: 2em;
-			}
-			
-			h1 {
-			color: #00FFFF;
-			}
-			
-			h2 {
-			color: #006666;
-			}
-			
-			#planeImage {
-			margin: 2em;
-			}
-			
-			#planeVideo {
-			margin-left: 2em;
-			}
-			
-			#youtube {
-			margin: 2em;
+			hr 
+			{
+				border-color: #DD00DD;
 			}
 			
 	</style>
 			
 		  </head>
 		  <body>
-			<h1>Welcome to Banana Airlines</h1>
 			
+			<h1 class="capitilizeFirst"><xsl:value-of select="package/@type"/> Holiday Packages</h1><br/>
+			<hr/>
 			<xsl:apply-templates select="package"/>
 			
-			
+			<address id="contactForm">
+				
+				&#169; 2020 Lachlan Court<br/>
+				c3308061<br/>
+				<a href="mailto:c3308061@uon.edu.au">Contact us</a><br/>
+				Bachelor of Computer Science<br/>
+				Website created for <a href="https://www.newcastle.edu.au/course/SENG1050">UON SENG1050</a> Assignment 2
+			</address>
 		  </body>
 	   </html>
 	   
@@ -64,10 +43,66 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	<xsl:template match="package">
 	
-	<h2>Bookings for </h2>
-	<xsl:value-of select="packageName"/><xsl:text> </xsl:text>
-	<xsl:value-of select="description"/><xsl:text> </xsl:text>
-	<br/>
+	
+	
+	<h3 style="margin-left: 10%;"><xsl:value-of select="packageName"/><xsl:text> </xsl:text></h3>
+	<p class="xsl">
+		<img alt="">
+			<xsl:attribute name="src">
+			<xsl:value-of select="images"/>
+			</xsl:attribute>
+		</img><br/>
+
+		<xsl:value-of select="description"/><br/>
+		<span class="xslBreak"><xsl:text> </xsl:text></span><br/>
+		
+		<strong><xsl:text>Cost: </xsl:text></strong><xsl:text>$</xsl:text>
+		<xsl:value-of select="cost"/><xsl:text> </xsl:text><br/>
+		
+		<strong><xsl:text>Number of Nights: </xsl:text></strong>
+		<xsl:value-of select="nights"/><xsl:text> </xsl:text><br/>
+		
+		<strong><xsl:text>Popularity Rating: </xsl:text></strong>
+		<xsl:value-of select="popularity"/><xsl:text> </xsl:text><br/>
+		
+		<strong><xsl:text>Accommodation Options Available: </xsl:text></strong><br/>
+		<xsl:for-each select="accommodationOptions">
+			<br/>
+			<strong id="indent"><xsl:text>Room type: </xsl:text></strong>
+			<xsl:value-of select="location"/><xsl:text> </xsl:text>
+			<strong><xsl:text>Extra Cost: </xsl:text></strong><xsl:text>$</xsl:text>
+			<xsl:value-of select="additionalCost"/><xsl:text> </xsl:text><br/>
+		</xsl:for-each>
+		<br/>
+		
+		<strong><xsl:text>highlights: </xsl:text></strong>
+		<xsl:value-of select="highlights"/><xsl:text> </xsl:text><br/>
+		
+		<strong><xsl:text>Coupon Code: </xsl:text></strong>
+		<xsl:value-of select="couponCode"/><xsl:text> </xsl:text><br/>
+		
+		<strong><xsl:text>Reviews: </xsl:text></strong><br/>
+		<xsl:for-each select="reviews">
+			<span class="xslPackageDetails"></span><xsl:text></xsl:text><xsl:value-of select="."/><xsl:text> </xsl:text><br/>
+		</xsl:for-each>
+		
+		<strong><xsl:text>Learn More: </xsl:text></strong>
+		<a class="xslExternalURL" href='{externalUrl}'><xsl:value-of select="externalUrl"/></a><br/>
+		
+		
+		<strong><xsl:text>Contact Details: </xsl:text></strong>
+		<xsl:for-each select="contactDetails">
+			<br/>
+			<strong id="indent"><xsl:text>Name: </xsl:text></strong>
+			<xsl:value-of select="contactName"/><br/>
+			<strong id="indent"><xsl:text>Number: </xsl:text></strong>
+			<xsl:value-of select="contactNumber"/><br/>
+			<strong id="indent"><xsl:text>Email: </xsl:text></strong>
+			<xsl:value-of select="contactEmail"/><br/>
+		</xsl:for-each>
+	</p>
+	
+	<!-- cost, nights, popularity, accommodationOptions+, highlights+, couponCode?, reviews*, images+, externalUrl, contactDetails-->
 	<!--
 	<span id="label"><xsl:text>Address: </xsl:text></span>
 	<xsl:value-of select="address"/>

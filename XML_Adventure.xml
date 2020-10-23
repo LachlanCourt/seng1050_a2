@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet href="airline-xslt.xsl" type="text/xsl"?>
+<?xml-stylesheet href="holiday-xslt.xsl" type="text/xsl"?>
 
 <!DOCTYPE packages [
 <!ELEMENT packages (package*)>
@@ -37,7 +37,7 @@
 ]>
 
 <packages>
-	<package type="international">
+	<package type="adventure">
 		<packageName>North Sea Crossing</packageName>
 		<description>
 			This 14 day sailing trip will take you into far into the ocean blue and let you experience what it's like to be a sailor exploring the world for the first time. We'll travel from picturesque Stavanger, Norway across
@@ -67,7 +67,7 @@
 		</contactDetails>
 	</package>
 
-	<package type="coast">
+	<package type="adventure">
 		<packageName>Crewman's Capers</packageName>
 		<description>
 			This sailing adventure is going to conclude with a neat certificate presented to you as a competent crew member! Our experienced trainers will take you out on the water on a five day action packed course to fill you in
@@ -92,7 +92,7 @@
 		</contactDetails>
 	</package>
 	
-	<package type="coast">
+	<package type="adventure">
 		<packageName>Day Skipper Escapade</packageName>
 		<description>
 			This sailing trip will teach you how to be a skipper, how to be the one in charge of a sailing vessel. You'll learn valuable skills such as weather forcasting and ship maintenance, extensive navigational theory and port

@@ -20,10 +20,9 @@ body {
 }
 
 /* Define style for header tag */
-header
-		{
-			margin-bottom: 8%;
-		}
+header {
+	margin-bottom: 8%;
+}
 
 h1 {
 	text-align: center;
@@ -66,10 +65,13 @@ h3 {
 	text-transform: uppercase;
 }
 
-li 
-		{
-			list-style-type: none;
-		}
+.capitilizeFirst {
+	text-transform: capitalize;
+}
+
+li {
+	list-style-type: none;
+}
 
 p {
 	background-color: #DDDDFF;
@@ -95,6 +97,13 @@ p.welcome {
 	text-align: justify;	
 }
 
+p.xsl {
+	margin-left: 10%;
+	margin-right: 10%;
+	width: 80%;
+}
+
+
 img {
 	float: left;
 	margin-right: 4%;
@@ -103,6 +112,9 @@ img {
 	border-color: black;
 	border-width: 5px;
 }
+
+
+	
 
 /* ID selector */
 #contactForm {
@@ -117,6 +129,10 @@ img {
 /* Hyperlink formatting */
 
 a {
+	color: #EEFFEE;
+}
+
+a:link {
 	color: #EEFFEE;
 }
 
@@ -160,6 +176,28 @@ a:active.menuButton{
 	background-color: #000090;
 }
 
+a.xslExternalURL {
+	color: #000099;
+}
+
+a:link.xslExternalURL {
+	color: #000099;
+}
+
+a:visited.xslExternalURL {
+	color: #550099;
+}
+
+a:hover.xslExternalURL {
+	font-weight: bold;
+	color: #000099;
+	font-size: 1.1em;
+}
+a:active.xslExternalURL {
+	color: #999900;
+}
+
+
 /* span element for extra formatting */
 
 span {
@@ -173,6 +211,27 @@ span {
 	background-color: #000050;
 	color: #EEFFEE;
 }
+
+span.xslBreak {
+	font-size:675%;
+	background-color:#DDDDFF;
+	padding:5px;
+}
+
+span.xslPackageDetails {
+	background-color:#DDDDFF;
+	color: #000099
+	margin: 0%;
+	margin-left: 1%;
+	padding: 0%;
+	border-radius: 0%;
+}
+
+#indent {
+	margin-left: 3%;
+}
+
+
 
 
 
