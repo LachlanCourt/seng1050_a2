@@ -42,3 +42,6 @@ https://www.newcastle.edu.au/course/SENG1050
 Changes to XML:
 Changed package "Type" to match whether it was an Adventure Holiday or a Family Holiday rather
 than being too specific. This way the package type could be used to change the heading on the category page
+
+Implemented CSS for dropdown menu from
+https://www.w3schools.com/howto/howto_css_dropdown.asp

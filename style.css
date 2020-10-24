@@ -156,7 +156,6 @@ a.menuButton{
 	text-decoration: none;
 	color: #EEFFEE;
 	background-color: #000050;
-	padding: 1%;
 	padding-top: 0.5%;
 	padding-bottom: 0.5%;
 }
@@ -236,6 +235,49 @@ span.basicFormatting {
 hr {
 	border-color: #DD00DD;
 }
+
+
+.menuContainer {
+	background-color: #DDDDFF;
+}
+
+.dropdown {
+}
+
+button {
+	text-decoration: none;
+	color: #EEFFEE;
+	background-color: #000050;
+	padding-bottom: 0.5%;
+	padding-top: 0.5%;
+	float:left;
+}
+
+button:hover {
+	background-color: #000070;
+	cursor: pointer;
+	border-radius: 5px;
+	font-size: 1.1em;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  padding-top: 0.5%;
+  padding-left: -5%;
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+
+
+
 
 
 

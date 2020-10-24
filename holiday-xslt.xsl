@@ -43,61 +43,82 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	
 	
 	<h3 style="margin-left: 10%;"><xsl:value-of select="packageName"/><xsl:text> </xsl:text></h3>
-	<p class="noMargin">
-		<img alt="">
-			<xsl:attribute name="src">
-			<xsl:value-of select="images"/>
-			</xsl:attribute>
-		</img><br/>
+	<div>
+		<p class="noMargin" style="float:right">
+			<xsl:for-each select="images">
+				<img alt="">
+					<xsl:attribute name="src">
+					<xsl:value-of select="."/>
+					</xsl:attribute>
+				</img><br/>
+			</xsl:for-each>
+			
+			<xsl:value-of select="description"/><br/>
+			<span class="xslBreak"><xsl:text> </xsl:text></span><br/>
+			
+			<!--<div style="float:right;">-->
+				<strong><xsl:text>Cost: </xsl:text></strong><xsl:text>$</xsl:text>
+				<xsl:value-of select="cost"/><xsl:text> </xsl:text><br/>
+				
+				<strong><xsl:text>Number of Nights: </xsl:text></strong>
+				<xsl:value-of select="nights"/><xsl:text> </xsl:text><br/>
+				
+				<strong><xsl:text>Popularity Rating: </xsl:text></strong>
+				<xsl:value-of select="popularity"/><xsl:text> </xsl:text><br/>
+				
+				<strong><xsl:text>Accommodation Options Available: </xsl:text></strong><br/>
+				<xsl:for-each select="accommodationOptions">
+					<strong id="indent"><xsl:text>Room type: </xsl:text></strong>
+					<xsl:value-of select="location"/><xsl:text> </xsl:text>
+					<strong><xsl:text>Extra Cost: </xsl:text></strong>
+					<xsl:if test="not(additionalCost != '')">
+						<xsl:text>None</xsl:text>
+					</xsl:if>				
+					<xsl:if test="additionalCost = 0">
+						<xsl:text>None</xsl:text>
+					</xsl:if>		
+					<xsl:if test="additionalCost != 0">
+						<xsl:text>$</xsl:text>
+						<xsl:value-of select="additionalCost"/><xsl:text> </xsl:text>
+					</xsl:if>
 
-		<xsl:value-of select="description"/><br/>
-		<span class="xslBreak"><xsl:text> </xsl:text></span><br/>
-		
-		<strong><xsl:text>Cost: </xsl:text></strong><xsl:text>$</xsl:text>
-		<xsl:value-of select="cost"/><xsl:text> </xsl:text><br/>
-		
-		<strong><xsl:text>Number of Nights: </xsl:text></strong>
-		<xsl:value-of select="nights"/><xsl:text> </xsl:text><br/>
-		
-		<strong><xsl:text>Popularity Rating: </xsl:text></strong>
-		<xsl:value-of select="popularity"/><xsl:text> </xsl:text><br/>
-		
-		<strong><xsl:text>Accommodation Options Available: </xsl:text></strong><br/>
-		<xsl:for-each select="accommodationOptions">
-			<br/>
-			<strong id="indent"><xsl:text>Room type: </xsl:text></strong>
-			<xsl:value-of select="location"/><xsl:text> </xsl:text>
-			<strong><xsl:text>Extra Cost: </xsl:text></strong><xsl:text>$</xsl:text>
-			<xsl:value-of select="additionalCost"/><xsl:text> </xsl:text><br/>
-		</xsl:for-each>
-		<br/>
-		
-		<strong><xsl:text>highlights: </xsl:text></strong>
-		<xsl:value-of select="highlights"/><xsl:text> </xsl:text><br/>
-		
-		<strong><xsl:text>Coupon Code: </xsl:text></strong>
-		<xsl:value-of select="couponCode"/><xsl:text> </xsl:text><br/>
-		
-		<strong><xsl:text>Reviews: </xsl:text></strong><br/>
-		<xsl:for-each select="reviews">
-			<span class="basicFormatting" id="indent"></span><xsl:text></xsl:text><xsl:value-of select="."/><xsl:text> </xsl:text><br/>
-		</xsl:for-each>
-		
-		<strong><xsl:text>Learn More: </xsl:text></strong>
-		<a class="xslExternalURL" href='{externalUrl}'><xsl:value-of select="externalUrl"/></a><br/>
-		
-		
-		<strong><xsl:text>Contact Details: </xsl:text></strong>
-		<xsl:for-each select="contactDetails">
-			<br/>
-			<strong id="indent"><xsl:text>Name: </xsl:text></strong>
-			<xsl:value-of select="contactName"/><br/>
-			<strong id="indent"><xsl:text>Number: </xsl:text></strong>
-			<xsl:value-of select="contactNumber"/><br/>
-			<strong id="indent"><xsl:text>Email: </xsl:text></strong>
-			<xsl:value-of select="contactEmail"/><br/>
-		</xsl:for-each>
-	</p>
+					<br/>
+					
+				</xsl:for-each>
+				
+				
+				<strong><xsl:text>Highlights: </xsl:text></strong><br/>
+				<xsl:for-each select="highlights">
+					<span class="basicFormatting" id="indent"></span><xsl:text></xsl:text><xsl:value-of select="."/><xsl:text> </xsl:text><br/>
+				</xsl:for-each>
+				
+				<xsl:if test="couponCode != ''">
+					<strong><xsl:text>Coupon Code: </xsl:text></strong>
+					<xsl:value-of select="couponCode"/><xsl:text> </xsl:text><br/>
+				</xsl:if>
+				
+				<strong><xsl:text>Reviews: </xsl:text></strong><br/>
+				<xsl:for-each select="reviews">
+					<span class="basicFormatting" id="indent"></span><xsl:text></xsl:text><xsl:value-of select="."/><xsl:text> </xsl:text><br/>
+				</xsl:for-each>
+				
+				<strong><xsl:text>Learn More: </xsl:text></strong>
+				<a class="xslExternalURL" href='{externalUrl}'><xsl:value-of select="externalUrl"/></a><br/>
+				
+				
+				<strong><xsl:text>Contact Details: </xsl:text></strong>
+				<xsl:for-each select="contactDetails">
+					<br/>
+					<strong id="indent"><xsl:text>Name: </xsl:text></strong>
+					<xsl:value-of select="contactName"/><br/>
+					<strong id="indent"><xsl:text>Number: </xsl:text></strong>
+					<xsl:value-of select="contactNumber"/><br/>
+					<strong id="indent"><xsl:text>Email: </xsl:text></strong>
+					<xsl:value-of select="contactEmail"/><br/>
+				</xsl:for-each>
+			
+		</p>
+	</div>
 	
 	<!-- cost, nights, popularity, accommodationOptions+, highlights+, couponCode?, reviews*, images+, externalUrl, contactDetails-->
 	<!--

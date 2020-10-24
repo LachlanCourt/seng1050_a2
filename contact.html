@@ -21,21 +21,27 @@
 	<script type="text/javascript">
         function checkNameYear() 
         {
+			// Check that the name is not empty
 			if (window.document.easyform.yourname.value == "")
 			{
 				alert("Name cannot be empty");
 				return false;
 			}
+			// Check that the email is not empty
 			if (window.document.easyform.email.value == "")
 			{
 				alert("Email cannot be empty");
 				return false;
 			}
+			
+			// Verify that a valid email address has been entered
 			var emailInput = window.document.easyform.email.value;
 			var emailVerified = true;
 			var checkStatus = 0;
 			var TLD = "";
-			for (var i = 0; i < emailInput.length;i++) {
+			for (var i = 0; i < emailInput.length;i++)
+			{
+				// First check if there is one and only one @ symbol
 				if (emailInput[i] == "@")
 				{	
 					if (checkStatus == 0)
@@ -49,27 +55,41 @@
 				}
 				if (checkStatus == 2)
 				{
+					// If there is an @ symbol followed by a . symbol, keep track of the TLD to verify it last
 					TLD += emailInput[i];
 				}
 				if ((checkStatus == 1) && (emailInput[i] == "."))
 				{
+					// Check for at least one . at some point after the @ symbol
 					checkStatus = 2;
 				}
 				
 			}
-			var validDomains = ["com", "com.au", "net", "org", "gov"];
-			var validDomain = true;
+			// Create an array of valid TLDs
+			var validDomains = ["com", "com.au", "net", "org", "gov.au"];
+			var validDomain = false;
+			for (var i = 0; i < validDomains.length;i++)
+			{
+				// Check if the user specified TLD is in the list
+				if (TLD == validDomains[i])
+				{
+					validDomain = true;
+				}
+			}
 			if ((checkStatus != 2) || (!validDomain))
 			{
+				// If any of the above conditions have failed, the email is not valid
 				emailVerified = false;
 			}
 			
+			// Notify user
 			if (!emailVerified)
 			{
 				alert("Please enter a valid email address");
 				return false;
 			}
 			
+			// Check for a valid message
 			if (window.document.easyform.message.value == "")
 			{
 				alert("Message cannot be empty");
@@ -104,12 +124,12 @@
 			<input type="hidden" name="_recipient" value="guest1@cs.wellesley.edu">
 				   
 			<div>
-				<label for="yourname">Please enter your full name</label>
+				<label for="yourname">Please enter your full name</label><br/>
 				<input type="text" placeholder="eg. Sam Smith" name="yourname" id="yourname">
 			</div>
 			
 			<div>
-				<label for="email">Please enter your email address</label>
+				<label for="email">Please enter your email address</label><br/>
 				<input type="text" placeholder="example@domain.com" name="email" id="email">
 			</div>
 					
@@ -121,11 +141,11 @@
 			<input type="submit" value="Click Here to Submit"> 
 			<input type="reset">   
 		</form>	
-		<span class="basicFormatting" id="indent">Alternatively, Contact us another way!</span><br/>
+		<span class="basicFormatting" id="indent">Alternatively, Contact us another way!</span><br/><br/>
 		<strong id="indent">Phone:</strong>
 		<span class="basicFormatting">6112 3456</span><br/>
 		<strong id="indent">Mail:</strong>
-		<span class="basicFormatting">130 University Drive, Callaghan, 2308</span><br/>
+		<span class="basicFormatting">130 University Drive, Callaghan, 2308</span><br/><br/>
 	</div>
 
 	<hr>
