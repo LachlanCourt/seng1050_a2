@@ -1,9 +1,6 @@
-<xsl:stylesheet version="1.0"
-xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-<xsl:output method="html" />
-
-    <xsl:template match="packages">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:output method="html" />
+	<xsl:template match="packages">
 
 	   <html>
 		 <head>	
@@ -20,6 +17,57 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 			
 		  </head>
 		  <body>
+		  
+			<!-- Menu for page navigation with relative URLs -->
+		<nav>
+			<header>
+				<div class="menuContainer">
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="index.html" class="menuButton">Home</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">Holiday Packages
+							<div class="dropdown-content">
+								<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
+								<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
+							</div>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="holidaysuggestion.html" class="menuButton">Suggest a Holiday</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="aboutus.html" class="menuButton">About Us</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="contact.html" class="menuButton">Contact Us</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">Legal Notices
+							<div class="dropdown-content">
+								<a href="termsandconditions.html" class="menuButton">Terms and Conditions</a>
+								<a href="privacy.html" class="menuButton">Privacy Policy</a>
+							</div>
+						</button>
+					</div>
+				</div>
+				<br/>
+			</header>
+		</nav>
 			
 			<h1 class="capitilizeFirst"><xsl:value-of select="package/@type"/> Holiday Packages</h1><br/>
 			<hr/>
@@ -36,27 +84,24 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 		  </body>
 	   </html>
 	   
-    </xsl:template>
-	
+	</xsl:template>
+		
 	<xsl:template match="package">
-	
-	
-	
-	<h3 style="margin-left: 10%;"><xsl:value-of select="packageName"/><xsl:text> </xsl:text></h3>
-	<div>
-		<p class="noMargin" style="float:right">
-			<xsl:for-each select="images">
-				<img alt="">
-					<xsl:attribute name="src">
-					<xsl:value-of select="."/>
-					</xsl:attribute>
-				</img><br/>
-			</xsl:for-each>
-			
-			<xsl:value-of select="description"/><br/>
-			<span class="xslBreak"><xsl:text> </xsl:text></span><br/>
-			
-			<!--<div style="float:right;">-->
+		<h3 style="margin-left: 10%;"><xsl:value-of select="packageName"/><xsl:text> </xsl:text></h3>
+		<div>
+			<p class="noMargin">
+				<xsl:for-each select="images">
+					<img alt="">
+						<xsl:attribute name="src">
+						<xsl:value-of select="."/>
+						</xsl:attribute>
+					</img>
+				</xsl:for-each>
+				<br/>
+				<xsl:value-of select="description"/><br/>
+				<span class="xslBreak"><xsl:text> </xsl:text></span><br/>
+				
+				
 				<strong><xsl:text>Cost: </xsl:text></strong><xsl:text>$</xsl:text>
 				<xsl:value-of select="cost"/><xsl:text> </xsl:text><br/>
 				
@@ -103,7 +148,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 				</xsl:for-each>
 				
 				<strong><xsl:text>Learn More: </xsl:text></strong>
-				<a class="xslExternalURL" href='{externalUrl}'><xsl:value-of select="externalUrl"/></a><br/>
+				<a class="externalURL" href='{externalUrl}'><xsl:value-of select="externalUrl"/></a><br/>
 				
 				
 				<strong><xsl:text>Contact Details: </xsl:text></strong>
@@ -116,77 +161,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 					<strong id="indent"><xsl:text>Email: </xsl:text></strong>
 					<xsl:value-of select="contactEmail"/><br/>
 				</xsl:for-each>
-			
-		</p>
-	</div>
-	
-	<!-- cost, nights, popularity, accommodationOptions+, highlights+, couponCode?, reviews*, images+, externalUrl, contactDetails-->
-	<!--
-	<span id="label"><xsl:text>Address: </xsl:text></span>
-	<xsl:value-of select="address"/>
-	<br/>
-	
-	<span id="label"><xsl:text>Phone number: </xsl:text></span>
-	<xsl:value-of select="phone"/>
-	<br/>
-	
-	<span id="label"><xsl:text>Legs: </xsl:text><br/></span>
-	<xsl:for-each select="leg">
-		<xsl:sort select="flight"/>
-		
-		<xsl:choose>
-			<xsl:when test="class != ''">
-				<span id="indent"><xsl:text>Date: </xsl:text></span>
-				<xsl:value-of select="date"/><xsl:text> </xsl:text><br/>
-				<span id="indent"><xsl:text>Flight number: </xsl:text></span>
-				<xsl:value-of select="flight"/><xsl:text> </xsl:text><br/>
-				<span id="indent"><xsl:text>Departure: </xsl:text></span>
-				<xsl:value-of select="depart/airportcode/@airport"/>
-				<xsl:text> (</xsl:text><xsl:value-of select="depart/airportcode"/><xsl:text>) </xsl:text>
-				<xsl:value-of select="depart/time"/><xsl:text> </xsl:text><br/>
-				<xsl:if test="depart/airportweb != ''">
-					<span id="indent"><xsl:text>Airport website: </xsl:text></span>
-					<a href='{depart/airportweb}'><xsl:value-of select="depart/airportweb"/></a>
-					<br/>
-				</xsl:if>
-				<span id="indent"><xsl:text>Arrival: </xsl:text></span>
-				<xsl:value-of select="arrive/airportcode/@airport"/>
-				<xsl:text> (</xsl:text><xsl:value-of select="arrive/airportcode"/><xsl:text>) </xsl:text>
-				<xsl:value-of select="arrive/time"/><xsl:text> </xsl:text><br/>
-				<xsl:if test="arrive/airportweb != ''">
-					<span id="indent"><xsl:text>Airport website: </xsl:text></span>
-					<a href='{arrive/airportweb}'><xsl:value-of select="arrive/airportweb"/></a>
-					<br/>
-				</xsl:if>
-				<span id="indent"><xsl:text>Class: </xsl:text></span>
-				<xsl:value-of select="class"/><xsl:text> </xsl:text><br/>
-				<span id="indent"><xsl:text>Aircraft: </xsl:text></span>
-				<xsl:value-of select="aircraft"/><xsl:text> </xsl:text><br/>
-				<img id="planeImage" alt="A plane">
-					<xsl:attribute name="src">
-						<xsl:value-of select="aircraft_photo"/>
-					</xsl:attribute>
-				</img><br/>
-				<video id="planeVideo" width="320" height="240" controls="controls">
-					<source type="audio/mp4">
-						<xsl:attribute name="src">
-							<xsl:value-of select="aircraft_video"/>			
-						</xsl:attribute>			
-					</source>
-				</video><br/>
-				<xsl:if test="aircraft_youtube != ''">
-					<embed id="youtube" width="320" height="240">
-						<xsl:attribute name="src">
-							<xsl:value-of select="aircraft_youtube"/>			
-						</xsl:attribute>			
-					</embed>
-				</xsl:if>
-				<br/>
-			</xsl:when>
-		</xsl:choose>
-	</xsl:for-each>
-	-->
-	<br/>
+			</p>
+		</div>
+		<br/>
 	</xsl:template>
 	
 	

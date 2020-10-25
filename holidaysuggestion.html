@@ -7,230 +7,287 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>goHoliday - Suggest a Holiday!</title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	
-	<style>
-		div {
-			background-color: #DDDDFF;
-		}
-	</style>
-	
-	<script type="text/javascript">
-        function checkNameYear() 
-        {
-			// Check that the name is not empty
-			if (window.document.easyform.yourname.value == "")
-			{
-				alert("Name cannot be empty");
-				return false;
+	<head>
+		<meta charset="UTF-8">
+		<title>goHoliday - Suggest a Holiday!</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<style>
+			div {
+				background-color: #DDDDFF;
 			}
-			// Check that the email is not empty
-			if (window.document.easyform.email.value == "")
+		</style>
+		
+		<script type="text/javascript">
+			function checkNameYear() 
 			{
-				alert("Email cannot be empty");
-				return false;
-			}
-			
-			// Verify that a valid email address has been entered
-			var emailInput = window.document.easyform.email.value;
-			var emailVerified = true;
-			var checkStatus = 0;
-			var TLD = "";
-			for (var i = 0; i < emailInput.length;i++)
-			{
-				// First check if there is one and only one @ symbol
-				if (emailInput[i] == "@")
-				{	
-					if (checkStatus == 0)
-					{
-						checkStatus = 1;
-					}
-					else
-					{
-						emailVerified = false;
-					}
-				}
-				if (checkStatus == 2)
+				// Check that the name is not empty
+				if (window.document.easyform.yourname.value == "")
 				{
-					// If there is an @ symbol followed by a . symbol, keep track of the TLD to verify it last
-					TLD += emailInput[i];
+					alert("Name cannot be empty");
+					return false;
 				}
-				if ((checkStatus == 1) && (emailInput[i] == "."))
+				// Check that the email is not empty
+				if (window.document.easyform.email.value == "")
 				{
-					// Check for at least one . at some point after the @ symbol
-					checkStatus = 2;
+					alert("Email cannot be empty");
+					return false;
 				}
 				
-			}
-			// Create an array of valid TLDs
-			var validDomains = ["com", "com.au", "net", "org", "gov.au"];
-			var validDomain = false;
-			for (var i = 0; i < validDomains.length;i++)
-			{
-				// Check if the user specified TLD is in the list
-				if (TLD == validDomains[i])
+				// Verify that a valid email address has been entered
+				var emailInput = window.document.easyform.email.value;
+				var emailVerified = true;
+				var checkStatus = 0;
+				var TLD = "";
+				for (var i = 0; i < emailInput.length;i++)
 				{
-					validDomain = true;
-				}
-			}
-			if ((checkStatus != 2) || (!validDomain))
-			{
-				// If any of the above conditions have failed, the email is not valid
-				emailVerified = false;
-			}
-			
-			// Notify user
-			if (!emailVerified)
-			{
-				alert("Please enter a valid email address");
-				return false;
-			}
-			
-			// Check for a valid message
-			if (window.document.easyform.message.value == "")
-			{
-				alert("Message cannot be empty");
-				return false;
-			}
-			return true;
-        }     
-      </script>
-	
-</head>
-
-<body>
-
-	<!-- Menu for page navigation with relative URLs -->
-	<nav>
-		<header>
-			<a href="#pack1" class="menuButton">North Sea Crossing</a>
-			<a href="#pack2" class="menuButton">Crewmans's Capers</a>
-			<a href="#pack3" class="menuButton">Day Skipper Escapade</a>
-			<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
-			<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
-			<a href="#contactForm" class="menuButton">Contact us</a>
-		</header>
-	</nav>
-
-	<!-- Welcome heading, centred, with caps class to make h1 all capital letters -->
-	<h1 class="caps">send us your holiday suggestions!</h1>
-	<hr style="margin-bottom:3%">
-	
-	<!--
-Information about the suggested holiday - Include at least the following:
-Name of the holiday
-A dropdown box for the user to indicate the category of the holiday i.e. beach, luxury, adventure, etc.
-A textfield for the user to enter a description.
-Checkboxes to indicate whether accommodation pricing is included, whether a coupon code is known, or any other property that you have listed in Assignment 1.
-	-->
-	
-	
-	<div>
-		<br/><span class="basicFormatting" id="indent">Let us know where you want to travel!</span>
-		<form style="margin:1%; margin-top:0%; padding:2%;" name="easyform" method="post" action="http://jkorpela.fi/cgi-bin/echo.cgi" onSubmit="return checkNameYear()">
-			<input type="hidden" name="_recipient" value="guest1@cs.wellesley.edu">
-				   
-			<div>
-				<label for="yourName">Please enter your full name</label><br/>
-				<input type="text" placeholder="eg. Sam Smith" name="yourName" id="yourName">
-			</div>
-			
-			<div>
-				<label for="email">Please enter your email address</label><br/>
-				<input type="text" placeholder="example@domain.com" name="email" id="email">
-			</div>
-			
-			<div>
-				<label for="numberHolidays">How many holidays have you submitted to us in the past using this form?</label>
-				<div id="numberHolidays">
-                    <select name="numberHolidays">
-                        <option>--select one--</option>
-                        <option>0</option>
-                        <option>1-5</option>
-                        <option>6-10</option>
-                        <option>10+</option>
-                    </select>
-                </div>
-			</div>
+					// First check if there is one and only one @ symbol
+					if (emailInput[i] == "@")
+					{	
+						if (checkStatus == 0)
+						{
+							checkStatus = 1;
+						}
+						else
+						{
+							emailVerified = false;
+						}
+					}
+					if (checkStatus == 2)
+					{
+						// If there is an @ symbol followed by a . symbol, keep track of the TLD to verify it last
+						TLD += emailInput[i];
+					}
+					if ((checkStatus == 1) && (emailInput[i] == "."))
+					{
+						// Check for at least one . at some point after the @ symbol
+						checkStatus = 2;
+					}
 					
-			<div>
-				<label for="recentHoliay">Have you been on a holiday in the past 5 years?</label><br/>
-				<div id="recentHoliay">
-					<label for="recentHoliay">Yes</label>
-					<input type="radio" name="recentHoliay" value="Yes" id="recentHoliay" checked><br>
+				}
+				// Create an array of valid TLDs
+				var validDomains = ["com", "com.au", "net", "org", "gov.au"];
+				var validDomain = false;
+				for (var i = 0; i < validDomains.length;i++)
+				{
+					// Check if the user specified TLD is in the list
+					if (TLD == validDomains[i])
+					{
+						validDomain = true;
+					}
+				}
+				if ((checkStatus != 2) || (!validDomain))
+				{
+					// If any of the above conditions have failed, the email is not valid
+					emailVerified = false;
+				}
+				
+				// Notify user
+				if (!emailVerified)
+				{
+					alert("Please enter a valid email address");
+					return false;
+				}
+				
+				// Check phone number
+				if (window.document.easyform.phone.value.length != 10)
+				{
+					alert("Phone number must be 10 digits long");
+					return false;
+				}
+				
+				// Check number of holidays
+				alert(window.document.easyform.numberHolidays.value);
+				if (window.document.easyform.numberHolidays.value == "")
+				{
+					alert("Please select an option for number of holidays");
+					return false;
+				}
+				
+				
+				
+				alert("success");
+				
+				return true;
+			}     
+		  </script>
+		
+	</head>
 
-					<label for="recentHoliay">No</label>
-					<input type="radio" name="recentHoliay" value="No" id="recentHoliay"><br>
+	<body>
+
+		<!-- Menu for page navigation with relative URLs -->
+		<nav>
+			<header>
+				<div class="menuContainer">
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="index.html" class="menuButton">Home</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">Holiday Packages
+							<div class="dropdown-content">
+								<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
+								<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
+							</div>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="holidaysuggestion.html" class="menuButton">Suggest a Holiday</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="aboutus.html" class="menuButton">About Us</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="contact.html" class="menuButton">Contact Us</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">Legal Notices
+							<div class="dropdown-content">
+								<a href="termsandconditions.html" class="menuButton">Terms and Conditions</a>
+								<a href="privacy.html" class="menuButton">Privacy Policy</a>
+							</div>
+						</button>
+					</div>
 				</div>
-			</div>
-			
-			<div>
-				<label for="holidayName">Please enter a suggested name for the holiday</label><br/>
-				<input type="text" placeholder="eg. Winter Wonderland" name="holidayName" id="holidayName">
-			</div>
-			
-			<div>
-				<label for="numberHolidays">Which category best describes the proposed holiday?</label>
-				<div id="numberHolidays">
-                    <select name="numberHolidays">
-                        <option>--select one--</option>
-                        <option>Adventure</option>
-						<option>Beach</option>
-						<option>Budget</option>
-						<option>Cruise</option>
-                        <option>Family</option>
-						<option>Honeymoon</option>
-                        <option>Luxury</option>
-						<option>Season</option>
-						<option>Other</option>
-                    </select>
-                </div>
-			</div>
+				<br/>
+			</header>
+		</nav>
 
-			<div>
-				<label for="holidayDescription">Tell us about the holiday</label><br/>
-				<textarea rows="10" cols="40" placeholder="Type your message here" name="holidayDescription" id="holidayDescription"></textarea>
-			</div>
-			
-			<div>
-				<label for="accommodation">What accommodation options are there?</label><br/>
-				<input type="text" placeholder="eg. Private room" name="accommodation" id="accommodation">
-			</div>
-			
-			<div>
-				Accommodation pricing is included
-				<input type="checkbox" name="accommodationIncluded" value="yes" id="yes">
-			</div>
-			
-			<div>
-				<label for="accommodation">What accommodation options are there?</label><br/>
-				<input type="text" placeholder="eg. Private room" name="accommodation" id="accommodation">
-			</div>
-			
-			<div>
-				I have a coupon code
-				<input type="checkbox" name="couponCodeGot" value="yes" id="yes">
-			</div>
-			
-			
-			
-			<input type="submit" value="Click Here to Submit"> 
-			<input type="reset">   
-		</form>	
-	</div>
+		<!-- Welcome heading, centred, with caps class to make h1 all capital letters -->
+		<h1 class="caps">send us your holiday suggestions!</h1>
+		<hr style="margin-bottom:3%">
+		
+		<!--
+	Information about the suggested holiday - Include at least the following:
+	Name of the holiday
+	A dropdown box for the user to indicate the category of the holiday i.e. beach, luxury, adventure, etc.
+	A textfield for the user to enter a description.
+	Checkboxes to indicate whether accommodation pricing is included, whether a coupon code is known, or any other property that you have listed in Assignment 1.
+		-->
+		
+		
+		<div>
+			<br/><span class="basicFormatting" id="indent">Let us know where you want to travel!</span>
+			<form style="margin:1%; margin-top:0%; padding:2%;" name="easyform" method="post" action="http://jkorpela.fi/cgi-bin/echo.cgi" onSubmit="return checkNameYear()">
+				<input type="hidden" name="_recipient" value="guest1@cs.wellesley.edu">
+					   
+				<div>
+					<label for="yourname">Please enter your full name</label><br/>
+					<input type="text" placeholder="eg. Sam Smith" name="yourname" id="yourname">
+				</div>
+				
+				<div>
+					<label for="email">Please enter your email address</label><br/>
+					<input type="text" placeholder="example@domain.com" name="email" id="email">
+				</div>
+				
+				<div>
+					<label for="phone">Please enter your phone number</label><br/>
+					<input type="text" placeholder="0412 345 678" name="phone" id="phone">
+				</div>
+				
+				<div>
+					<label for="numberHolidays">How many holidays have you submitted to us in the past using this form?</label>
+					<br/>
+					<select name="numberHolidays" id="numberHolidays">
+						<option value="" name="numberHolidays" id="numberHolidays">--select one--</option>
+						<option value="0" name="numberHolidays" id="numberHolidays">0</option>
+						<option value="1-5" name="numberHolidays" id="numberHolidays">1-5</option>
+						<option value="6-10" name="numberHolidays" id="numberHolidays">6-10</option>
+						<option value="10+" name="numberHolidays" id="numberHolidays">10+</option>
+					</select>
+				</div>
+						
+				<div>
+					<label for="recentHoliay">Have you been on a holiday in the past 5 years?</label><br/>
+					<div id="recentHoliay">
+						<label for="recentHoliay">Yes</label>
+						<input type="radio" name="recentHoliay" value="Yes" id="recentHoliay" checked><br>
 
-	<hr>
+						<label for="recentHoliay">No</label>
+						<input type="radio" name="recentHoliay" value="No" id="recentHoliay"><br>
+					</div>
+				</div>
+				
+				<div>
+					<label for="holidayName">Please enter a suggested name for the holiday</label><br/>
+					<input type="text" placeholder="eg. Winter Wonderland" name="holidayName" id="holidayName">
+				</div>
+				
+				<div>
+					<label for="numberHolidays">Which category best describes the proposed holiday?</label>
+					<div id="numberHolidays">
+						<select name="numberHolidays">
+							<option>--select one--</option>
+							<option>Adventure</option>
+							<option>Beach</option>
+							<option>Budget</option>
+							<option>Cruise</option>
+							<option>Family</option>
+							<option>Honeymoon</option>
+							<option>Luxury</option>
+							<option>Season</option>
+							<option>Other</option>
+						</select>
+					</div>
+				</div>
 
-	<!-- Contact details, aligned right -->
-	<address id="contactForm">
-		&#169; 2020 Lachlan Court<br>
-		c3308061<br>
-		<a href="mailto:c3308061@uon.edu.au">Contact us</a><br>
-		Bachelor of Computer Science<br>
-		Website created for <a href="https://www.newcastle.edu.au/course/SENG1050">UON SENG1050</a> Assignment 2
-	</address>
-</body>
+				<div>
+					<label for="holidayDescription">Tell us about the holiday</label><br/>
+					<textarea rows="10" cols="40" placeholder="Type your message here" name="holidayDescription" id="holidayDescription"></textarea>
+				</div>
+				
+				<div>
+					<label for="accommodation">What accommodation options are there?</label><br/>
+					<textarea rows="4" cols="40" placeholder="eg. Private room" name="accommodation" id="accommodation"></textarea>
+				</div>
+				
+				<div>
+					<input type="checkbox" name="accommodationIncluded" value="yes" id="yes">
+					Accommodation pricing is included
+				</div>
+				
+				<div>
+					<input type="checkbox" name="couponCodeGot" value="yes" id="yes">
+					I have a coupon code
+				</div>
+				
+				<div>
+					Data submitted via this form is copyright according to our Terms and Conditions and Privacy Policy. <br/>
+					<input type="checkbox" name="legalAgreement" value="yes" id="yes">
+					I agree to the <a href="termsandconditions.html" class="externalURL">Terms and Conditions</a> and <a href="privacy.html" class="externalURL">Privacy Policy</a>
+				</div>
+				<br/>
+				
+				
+				<input type="submit" value="Click Here to Submit"> 
+				<input type="reset">   
+			</form>	
+		</div>
+
+		<hr>
+
+		<!-- Contact details, aligned right -->
+		<address id="contactForm">
+			&#169; 2020 Lachlan Court<br>
+			c3308061<br>
+			<a href="mailto:c3308061@uon.edu.au">Contact us</a><br>
+			Bachelor of Computer Science<br>
+			Website created for <a href="https://www.newcastle.edu.au/course/SENG1050">UON SENG1050</a> Assignment 2
+		</address>
+	</body>
 </html>

@@ -161,14 +161,13 @@ a.menuButton{
 }
 
 a:visited.menuButton{
-	background-color: #200030;
 }
 
 a:hover.menuButton{
-	background-color: #000070;
 	cursor: pointer;
 	border-radius: 5px;
-	font-size: 1.1em;
+	font-size: 1em;
+	
 }
 
 a:active.menuButton{
@@ -176,24 +175,24 @@ a:active.menuButton{
 	background-color: #000090;
 }
 
-a.xslExternalURL {
+a.externalURL {
 	color: #000099;
 }
 
-a:link.xslExternalURL {
+a:link.externalURL {
 	color: #000099;
 }
 
-a:visited.xslExternalURL {
+a:visited.externalURL {
 	color: #550099;
 }
 
-a:hover.xslExternalURL {
+a:hover.externalURL {
 	font-weight: bold;
 	color: #000099;
 	font-size: 1.1em;
 }
-a:active.xslExternalURL {
+a:active.externalURL {
 	color: #999900;
 }
 
@@ -246,15 +245,17 @@ hr {
 
 button {
 	text-decoration: none;
+	font-weight: bold;
 	color: #EEFFEE;
 	background-color: #000050;
 	padding-bottom: 0.5%;
 	padding-top: 0.5%;
 	float:left;
+	position:relative;
+	margin-bottom: 2%;
 }
 
 button:hover {
-	background-color: #000070;
 	cursor: pointer;
 	border-radius: 5px;
 	font-size: 1.1em;

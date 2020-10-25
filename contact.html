@@ -7,156 +7,194 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>goHoliday - Contact Us</title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	
-	<style>
-		div {
-			background-color: #DDDDFF;
-		}
-	</style>
-	
-	<script type="text/javascript">
-        function checkNameYear() 
-        {
-			// Check that the name is not empty
-			if (window.document.easyform.yourname.value == "")
-			{
-				alert("Name cannot be empty");
-				return false;
+	<head>
+		<meta charset="UTF-8">
+		<title>goHoliday - Contact Us</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<style>
+			div {
+				background-color: #DDDDFF;
 			}
-			// Check that the email is not empty
-			if (window.document.easyform.email.value == "")
+		</style>
+		
+		<script type="text/javascript">
+			function checkNameYear() 
 			{
-				alert("Email cannot be empty");
-				return false;
-			}
-			
-			// Verify that a valid email address has been entered
-			var emailInput = window.document.easyform.email.value;
-			var emailVerified = true;
-			var checkStatus = 0;
-			var TLD = "";
-			for (var i = 0; i < emailInput.length;i++)
-			{
-				// First check if there is one and only one @ symbol
-				if (emailInput[i] == "@")
-				{	
-					if (checkStatus == 0)
-					{
-						checkStatus = 1;
-					}
-					else
-					{
-						emailVerified = false;
-					}
-				}
-				if (checkStatus == 2)
+				// Check that the name is not empty
+				if (window.document.easyform.yourname.value == "")
 				{
-					// If there is an @ symbol followed by a . symbol, keep track of the TLD to verify it last
-					TLD += emailInput[i];
+					alert("Name cannot be empty");
+					return false;
 				}
-				if ((checkStatus == 1) && (emailInput[i] == "."))
+				// Check that the email is not empty
+				if (window.document.easyform.email.value == "")
 				{
-					// Check for at least one . at some point after the @ symbol
-					checkStatus = 2;
+					alert("Email cannot be empty");
+					return false;
 				}
 				
-			}
-			// Create an array of valid TLDs
-			var validDomains = ["com", "com.au", "net", "org", "gov.au"];
-			var validDomain = false;
-			for (var i = 0; i < validDomains.length;i++)
-			{
-				// Check if the user specified TLD is in the list
-				if (TLD == validDomains[i])
+				// Verify that a valid email address has been entered
+				var emailInput = window.document.easyform.email.value;
+				var emailVerified = true;
+				var checkStatus = 0;
+				var TLD = "";
+				for (var i = 0; i < emailInput.length;i++)
 				{
-					validDomain = true;
-				}
-			}
-			if ((checkStatus != 2) || (!validDomain))
-			{
-				// If any of the above conditions have failed, the email is not valid
-				emailVerified = false;
-			}
-			
-			// Notify user
-			if (!emailVerified)
-			{
-				alert("Please enter a valid email address");
-				return false;
-			}
-			
-			// Check for a valid message
-			if (window.document.easyform.message.value == "")
-			{
-				alert("Message cannot be empty");
-				return false;
-			}
-			return true;
-        }      
-      </script>
-	
-</head>
-
-<body>
-
-	<!-- Menu for page navigation with relative URLs -->
-	<nav>
-		<header>
-			<a href="#pack1" class="menuButton">North Sea Crossing</a>
-			<a href="#pack2" class="menuButton">Crewmans's Capers</a>
-			<a href="#pack3" class="menuButton">Day Skipper Escapade</a>
-			<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
-			<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
-			<a href="#contactForm" class="menuButton">Contact us</a>
-		</header>
-	</nav>
-
-	<!-- Welcome heading, centred, with caps class to make h1 all capital letters -->
-	<h1 class="caps">contact us</h1>
-	<hr style="margin-bottom:3%">
-	<div>
-		<br/><span class="basicFormatting" id="indent">Send us an email using the form below!</span>
-		<form style="margin:1%; margin-top:0%; padding:2%;" name="easyform" method="post" action="http://jkorpela.fi/cgi-bin/echo.cgi" onSubmit="return checkNameYear()">
-			<input type="hidden" name="_recipient" value="guest1@cs.wellesley.edu">
-				   
-			<div>
-				<label for="yourname">Please enter your full name</label><br/>
-				<input type="text" placeholder="eg. Sam Smith" name="yourname" id="yourname">
-			</div>
-			
-			<div>
-				<label for="email">Please enter your email address</label><br/>
-				<input type="text" placeholder="example@domain.com" name="email" id="email">
-			</div>
+					// First check if there is one and only one @ symbol
+					if (emailInput[i] == "@")
+					{	
+						if (checkStatus == 0)
+						{
+							checkStatus = 1;
+						}
+						else
+						{
+							emailVerified = false;
+						}
+					}
+					if (checkStatus == 2)
+					{
+						// If there is an @ symbol followed by a . symbol, keep track of the TLD to verify it last
+						TLD += emailInput[i];
+					}
+					if ((checkStatus == 1) && (emailInput[i] == "."))
+					{
+						// Check for at least one . at some point after the @ symbol
+						checkStatus = 2;
+					}
 					
-			<div>
-				<label for="message">How can we help you?</label><br/>
-				<textarea rows="10" cols="40" placeholder="Type your message here" name="message" id="message"></textarea>
-			</div>
+				}
+				// Create an array of valid TLDs
+				var validDomains = ["com", "com.au", "net", "org", "gov.au"];
+				var validDomain = false;
+				for (var i = 0; i < validDomains.length;i++)
+				{
+					// Check if the user specified TLD is in the list
+					if (TLD == validDomains[i])
+					{
+						validDomain = true;
+					}
+				}
+				if ((checkStatus != 2) || (!validDomain))
+				{
+					// If any of the above conditions have failed, the email is not valid
+					emailVerified = false;
+				}
+				
+				// Notify user
+				if (!emailVerified)
+				{
+					alert("Please enter a valid email address");
+					return false;
+				}
+				
+				// Check for a valid message
+				if (window.document.easyform.message.value == "")
+				{
+					alert("Message cannot be empty");
+					return false;
+				}
+				return true;
+			}      
+		  </script>
+		
+	</head>
 
-			<input type="submit" value="Click Here to Submit"> 
-			<input type="reset">   
-		</form>	
-		<span class="basicFormatting" id="indent">Alternatively, Contact us another way!</span><br/><br/>
-		<strong id="indent">Phone:</strong>
-		<span class="basicFormatting">6112 3456</span><br/>
-		<strong id="indent">Mail:</strong>
-		<span class="basicFormatting">130 University Drive, Callaghan, 2308</span><br/><br/>
-	</div>
+	<body>
+		<!-- Menu for page navigation with relative URLs -->
+		<nav>
+			<header>
+				<div class="menuContainer">
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="index.html" class="menuButton">Home</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">Holiday Packages
+							<div class="dropdown-content">
+								<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
+								<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
+							</div>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="holidaysuggestion.html" class="menuButton">Suggest a Holiday</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="aboutus.html" class="menuButton">About Us</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="contact.html" class="menuButton">Contact Us</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">Legal Notices
+							<div class="dropdown-content">
+								<a href="termsandconditions.html" class="menuButton">Terms and Conditions</a>
+								<a href="privacy.html" class="menuButton">Privacy Policy</a>
+							</div>
+						</button>
+					</div>
+				</div>
+				<br/>
+			</header>
+		</nav>
 
-	<hr>
+		<!-- Welcome heading, centred, with caps class to make h1 all capital letters -->
+		<h1 class="caps">contact us</h1>
+		<hr style="margin-bottom:3%">
+		<div>
+			<br/><span class="basicFormatting" id="indent">Send us an email using the form below!</span>
+			<form style="margin:1%; margin-top:0%; padding:2%;" name="easyform" method="post" action="http://jkorpela.fi/cgi-bin/echo.cgi" onSubmit="return checkNameYear()">
+				<input type="hidden" name="_recipient" value="guest1@cs.wellesley.edu">
+					   
+				<div>
+					<label for="yourname">Please enter your full name</label><br/>
+					<input type="text" placeholder="eg. Sam Smith" name="yourname" id="yourname">
+				</div>
+				
+				<div>
+					<label for="email">Please enter your email address</label><br/>
+					<input type="text" placeholder="example@domain.com" name="email" id="email">
+				</div>
+						
+				<div>
+					<label for="message">How can we help you?</label><br/>
+					<textarea rows="10" cols="40" placeholder="Type your message here" name="message" id="message"></textarea>
+				</div>
 
-	<!-- Contact details, aligned right -->
-	<address id="contactForm">
-		&#169; 2020 Lachlan Court<br>
-		c3308061<br>
-		<a href="mailto:c3308061@uon.edu.au">Contact us</a><br>
-		Bachelor of Computer Science<br>
-		Website created for <a href="https://www.newcastle.edu.au/course/SENG1050">UON SENG1050</a> Assignment 2
-	</address>
-</body>
+				<input type="submit" value="Click Here to Submit"> 
+				<input type="reset">   
+			</form>	
+			<span class="basicFormatting" id="indent">Alternatively, Contact us another way!</span><br/><br/>
+			<strong id="indent">Phone:</strong>
+			<span class="basicFormatting">6112 3456</span><br/>
+			<strong id="indent">Mail:</strong>
+			<span class="basicFormatting">130 University Drive, Callaghan, 2308</span><br/><br/>
+		</div>
+
+		<hr>
+
+		<!-- Contact details, aligned right -->
+		<address id="contactForm">
+			&#169; 2020 Lachlan Court<br>
+			c3308061<br>
+			<a href="mailto:c3308061@uon.edu.au">Contact us</a><br>
+			Bachelor of Computer Science<br>
+			Website created for <a href="https://www.newcastle.edu.au/course/SENG1050">UON SENG1050</a> Assignment 2
+		</address>
+	</body>
 </html>

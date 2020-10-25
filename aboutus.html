@@ -7,51 +7,90 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Welcome to goHoliday!</title>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	
-	<style>
+	<head>
+		<meta charset="UTF-8">
+		<title>Welcome to goHoliday!</title>
+		<link rel="stylesheet" type="text/css" href="style.css" />
 		
-	</style>
-	
-</head>
+		<style>
+			
+		</style>
+		
+	</head>
 
-<body>
+	<body>
 
-	<!-- Menu for page navigation with relative URLs -->
-	<nav>
-		<header>
-			<a href="#pack1" class="menuButton">North Sea Crossing</a>
-			<a href="#pack2" class="menuButton">Crewmans's Capers</a>
-			<a href="#pack3" class="menuButton">Day Skipper Escapade</a>
-			<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
-			<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
-			<a href="#contactForm" class="menuButton">Contact us</a>
-		</header>
-	</nav>
+		<!-- Menu for page navigation with relative URLs -->
+		<nav>
+			<header>
+				<div class="menuContainer">
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="index.html" class="menuButton">Home</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">Holiday Packages
+							<div class="dropdown-content">
+								<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
+								<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
+							</div>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="holidaysuggestion.html" class="menuButton">Suggest a Holiday</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="aboutus.html" class="menuButton">About Us</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">
+							<a href="contact.html" class="menuButton">Contact Us</a>
+						</button>
+					</div>
+					
+					<div class="dropdown">
+						<button class="menuButton">Legal Notices
+							<div class="dropdown-content">
+								<a href="termsandconditions.html" class="menuButton">Terms and Conditions</a>
+								<a href="privacy.html" class="menuButton">Privacy Policy</a>
+							</div>
+						</button>
+					</div>
+				</div>
+				<br/>
+			</header>
+		</nav>
 
-	<!-- Welcome heading, centred, with caps class to make h1 all capital letters -->
-	<h1 class="caps">About Us</h1>
+		<!-- Welcome heading, centred, with caps class to make h1 all capital letters -->
+		<h1 class="caps">About Us</h1>
 
-	<p class="welcome">
-		goHoliday was founded in 2010 on the basis that no holiday should break the bank. Starting out as a family business, popularity grew thanks to
-		our focus on you, the customer. We now have over 100 sites up and down the East Coast of Australia, but have still never forgotten where we came
-		from. Our team is made up of highly experinced and well travelled individuals who are more than happy to work with you to create the perfect trip.
-		With hundreds of options for any budget, our team is committed to finding the best price for the holiday of your dreams.
-	</p>
-	
+		<p class="welcome">
+			goHoliday was founded in 2010 on the basis that no holiday should break the bank. Starting out as a family business, popularity grew thanks to
+			our focus on you, the customer. We now have over 100 sites up and down the East Coast of Australia, but have still never forgotten where we came
+			from. Our team is made up of highly experinced and well travelled individuals who are more than happy to work with you to create the perfect trip.
+			With hundreds of options for any budget, our team is committed to finding the best price for the holiday of your dreams.
+		</p>
+		
 
-	<hr>
+		<hr>
 
-	<!-- Contact details, aligned right -->
-	<address id="contactForm">
-		&#169; 2020 Lachlan Court<br>
-		c3308061<br>
-		<a href="mailto:c3308061@uon.edu.au">Contact us</a><br>
-		Bachelor of Computer Science<br>
-		Website created for <a href="https://www.newcastle.edu.au/course/SENG1050">UON SENG1050</a> Assignment 2
-	</address>
-</body>
+		<!-- Contact details, aligned right -->
+		<address id="contactForm">
+			&#169; 2020 Lachlan Court<br>
+			c3308061<br>
+			<a href="mailto:c3308061@uon.edu.au">Contact us</a><br>
+			Bachelor of Computer Science<br>
+			Website created for <a href="https://www.newcastle.edu.au/course/SENG1050">UON SENG1050</a> Assignment 2
+		</address>
+	</body>
 </html>
