@@ -66,7 +66,7 @@
 					
 				}
 				// Create an array of valid TLDs
-				var validDomains = ["com", "com.au", "net", "org", "gov.au"];
+				var validDomains = ["com", "com.au", "net", "org", "gov.au", "edu.au"];
 				var validDomain = false;
 				for (var i = 0; i < validDomains.length;i++)
 				{
@@ -95,6 +95,14 @@
 					alert("Message cannot be empty");
 					return false;
 				}
+				
+				// Check legal agreement
+				if (!document.getElementById("legalAgreement").checked)
+				{
+					alert("Please agree to our Terms and Conditions and Privacy Policy");
+					return false;
+				}
+				
 				return true;
 			}      
 		  </script>
@@ -162,20 +170,34 @@
 				<input type="hidden" name="_recipient" value="guest1@cs.wellesley.edu">
 					   
 				<div>
-					<label for="yourname">Please enter your full name</label><br/>
+					<label for="yourname">Please enter your full name</label>
+					<span class="basicFormatting" id="requiredForm">*</span>
+					<br/>
 					<input type="text" placeholder="eg. Sam Smith" name="yourname" id="yourname">
 				</div>
 				
 				<div>
-					<label for="email">Please enter your email address</label><br/>
+					<label for="email">Please enter your email address</label>
+					<span class="basicFormatting" id="requiredForm">*</span>
+					<br/>
 					<input type="text" placeholder="example@domain.com" name="email" id="email">
 				</div>
 						
 				<div>
-					<label for="message">How can we help you?</label><br/>
+					<label for="message">How can we help you?</label>
+					<span class="basicFormatting" id="requiredForm">*</span>
+					<br/>
 					<textarea rows="10" cols="40" placeholder="Type your message here" name="message" id="message"></textarea>
 				</div>
-
+				
+				<div>
+				<br/>
+					Data submitted via this form is copyright according to our Terms and Conditions and Privacy Policy. <br/>
+					<input type="checkbox" name="legalAgreement" value="yes" id="legalAgreement">
+					I agree to the <a href="termsandconditions.html" class="externalURL">Terms and Conditions</a> and <a href="privacy.html" class="externalURL">Privacy Policy</a>
+					<span class="basicFormatting" id="requiredForm">*</span>
+				</div>
+				<br/>
 				<input type="submit" value="Click Here to Submit"> 
 				<input type="reset">   
 			</form>	
