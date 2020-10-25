@@ -231,6 +231,10 @@ span.basicFormatting {
 	margin-left: 3%;
 }
 
+#requiredForm {
+	color: #FF0000;
+}
+
 hr {
 	border-color: #DD00DD;
 }
