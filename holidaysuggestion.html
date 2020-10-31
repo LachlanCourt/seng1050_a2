@@ -1,9 +1,10 @@
 <!--
 **** Lachlan Court
 **** c3308061
-**** SENG1050 Assignment 1
-**** 17/09/2020
+**** SENG1050 Assignment 2
+**** 31/10/2020
 -->
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,7 @@
 			}
 		</style>
 		
-		<script type="text/javascript">
+		<script>
 			function checkNameYear() 
 			{
 				// Check that the name is not empty
@@ -150,174 +151,164 @@
 		<nav>
 			<header>
 				<div class="menuContainer">
-					
-					<div class="dropdown">
-						<button class="menuButton">
+					<ul>
+						<li class="menuButton">
 							<a href="index.html" class="menuButton">Home</a>
-						</button>
-					</div>
-					
-					<div class="dropdown">
-						<button class="menuButton">Holiday Packages
+						</li>
+						
+						<li class="menuButton">Holiday Packages
 							<div class="dropdown-content">
 								<a href="XML_Adventure.xml" class="menuButton">Adventure Packages</a>
 								<a href="XML_Family.xml" class="menuButton">Family Holiday Packages</a>
 							</div>
-						</button>
-					</div>
-					
-					<div class="dropdown">
-						<button class="menuButton">
+						</li>
+						
+						<li class="menuButton">
 							<a href="holidaysuggestion.html" class="menuButton">Suggest a Holiday</a>
-						</button>
-					</div>
-					
-					<div class="dropdown">
-						<button class="menuButton">
+						</li>
+						
+						<li class="menuButton">
 							<a href="aboutus.html" class="menuButton">About Us</a>
-						</button>
-					</div>
-					
-					<div class="dropdown">
-						<button class="menuButton">
+						</li>
+						
+						<li class="menuButton">
 							<a href="contact.html" class="menuButton">Contact Us</a>
-						</button>
-					</div>
-					
-					<div class="dropdown">
-						<button class="menuButton">Legal Notices
+						</li>
+						
+						<li class="menuButton">Legal Notices
 							<div class="dropdown-content">
 								<a href="termsandconditions.html" class="menuButton">Terms and Conditions</a>
 								<a href="privacy.html" class="menuButton">Privacy Policy</a>
 							</div>
-						</button>
-					</div>
+						</li>
+					</ul>
 				</div>
 				<br/>
 			</header>
 		</nav>
 
-		<!-- Welcome heading, centred, with caps class to make h1 all capital letters -->
+		<!-- Heading, centred, with caps class to make h1 all capital letters -->
 		<h1 class="caps">send us your holiday suggestions!</h1>
-		<hr style="margin-bottom:3%">
-		
-		<!--
-	Information about the suggested holiday - Include at least the following:
-	Name of the holiday
-	A dropdown box for the user to indicate the category of the holiday i.e. beach, luxury, adventure, etc.
-	A textfield for the user to enter a description.
-	Checkboxes to indicate whether accommodation pricing is included, whether a coupon code is known, or any other property that you have listed in Assignment 1.
-		-->
-		
+		<hr style="margin-bottom:3%">		
 		
 		<div>
-			<br/><span class="basicFormatting" id="indent">Let us know where you want to travel!</span>
+			<br/><span class="basicFormatting indent">Let us know where you want to travel!</span>
+			<!-- Form to collect details about the holiday from a site visitor -->
 			<form style="margin:1%; margin-top:0%; padding:2%;" name="easyform" method="post" action="http://jkorpela.fi/cgi-bin/echo.cgi" onSubmit="return checkNameYear()">
 				<input type="hidden" name="_recipient" value="guest1@cs.wellesley.edu">
-					   
-				<div>
-					<label for="yourname">Please enter your full name</label>
-					<span class="basicFormatting" id="requiredForm">*</span>
-					<br/>
-					<input type="text" placeholder="eg. Sam Smith" name="yourname" id="yourname">
-				</div>
-				
-				<div>
-					<label for="email">Please enter your email address</label><span class="basicFormatting" id="requiredForm">*</span><br/>
-					<input type="text" placeholder="example@domain.com" name="email" id="email">
-				</div>
-				
-				<div>
-					<label for="phone">Please enter your phone number</label><br/>
-					<input type="text" placeholder="0412 345 678" name="phone" id="phone">
-				</div>
-				
-				<div>
-					<label for="numberHolidays">How many holidays have you submitted to us in the past using this form?</label>
-					<span class="basicFormatting" id="requiredForm">*</span>
-					<br/>
-					<select name="numberHolidays" id="numberHolidays">
-						<option value="">--select one--</option>
-						<option value="0">0</option>
-						<option value="1-5">1-5</option>
-						<option value="6-10">6-10</option>
-						<option value="10+">10+</option>
-					</select>
-				</div>
-						
-				<div>
-					<label for="recentHoliay">Have you been on a holiday in the past 5 years?</label><br/>
-					<div id="recentHoliay">
-						<label for="recentHoliay">Yes</label>
-						<input type="radio" name="recentHoliay" value="Yes" id="recentHoliay"><br>
-
-						<label for="recentHoliay">No</label>
-						<input type="radio" name="recentHoliay" value="No" id="recentHoliay" checked><br>
+				<fieldset> 
+				<legend>Personal Information</legend>
+					<div>
+						<label for="yourname">Please enter your full name</label>
+						<span class="basicFormatting requiredForm">*</span>
+						<br/>
+						<input type="text" placeholder="eg. Sam Smith" name="yourname" id="yourname">
 					</div>
-				</div>
-				
-				<div>
-					<label for="holidayName">Please enter a suggested name for the holiday</label><br/>
-					<input type="text" placeholder="eg. Winter Wonderland" name="holidayName" id="holidayName">
-				</div>
-				
-				<div>
-					<label for="holidayCategory">Which category best describes the proposed holiday?</label>
-					<span class="basicFormatting" id="requiredForm">*</span>
-					<br/>
-					<select name="holidayCategory" id="holidayCategory">
-						<option value="">--select one--</option>
-						<option value="Adventure">Adventure</option>
-						<option value="Beach">Beach</option>
-						<option value="Budget">Budget</option>
-						<option value="Cruise">Cruise</option>
-						<option value="Family">Family</option>
-						<option value="Honeymoon">Honeymoon</option>
-						<option value="Luxury">Luxury</option>
-						<option value="Season">Season</option>
-						<option value="Other">Other</option>
-					</select>
-				</div>
-				
-				<div>
-					<label for="holidayCategoryText">If you selected Other, please specify a suitable category</label><br/>
-					<input type="text" placeholder="eg. Cruise" name="holidayCategoryText" id="holidayCategoryText">
-				</div>
+					
+					<div>
+						<label for="email">Please enter your email address </label><span class="basicFormatting requiredForm">*</span><br/>
+						<input type="text" placeholder="example@domain.com" name="email" id="email">
+					</div>
+					
+					<div>
+						<label for="phone">Please enter your phone number</label><br/>
+						<input type="text" placeholder="0412 345 678" name="phone" id="phone">
+					</div>
+					
+					<div>
+						<label for="numberHolidays">How many holidays have you submitted to us in the past using this form?</label>
+						<span class="basicFormatting requiredForm">*</span>
+						<br/>
+						<select name="numberHolidays" id="numberHolidays">
+							<option value="">--select one--</option>
+							<option value="0">0</option>
+							<option value="1-5">1-5</option>
+							<option value="6-10">6-10</option>
+							<option value="10+">10+</option>
+						</select>
+					</div>
+							
+					<div>
+						Have you been on a holiday in the past 5 years?<br/>
+						<div id="recentHoliday">
+							<label for="recentHolidayYes">Yes</label>
+							<input type="radio" name="recentHoliday" value="Yes" id="recentHolidayYes"><br>
 
-				<div>
-					<label for="holidayDescription">Tell us about the holiday</label>
-					<span class="basicFormatting" id="requiredForm">*</span>
+							<label for="recentHolidayNo">No</label>
+							<input type="radio" name="recentHoliday" value="No" id="recentHolidayNo" checked><br>
+						</div>
+					</div>
+				</fieldset>
+				
+				<fieldset>
+					<legend>Holiday Information</legend>
+					<div>
+						<label for="holidayName">Please enter a suggested name for the holiday</label><br/>
+						<input type="text" placeholder="eg. Winter Wonderland" name="holidayName" id="holidayName">
+					</div>
+					
+					<div>
+						<label for="holidayCategory">Which category best describes the proposed holiday?</label>
+						<span class="basicFormatting requiredForm">*</span>
+						<br/>
+						<select name="holidayCategory" id="holidayCategory">
+							<option value="">--select one--</option>
+							<option value="Adventure">Adventure</option>
+							<option value="Beach">Beach</option>
+							<option value="Budget">Budget</option>
+							<option value="Cruise">Cruise</option>
+							<option value="Family">Family</option>
+							<option value="Honeymoon">Honeymoon</option>
+							<option value="Luxury">Luxury</option>
+							<option value="Season">Season</option>
+							<option value="Other">Other</option>
+						</select>
+					</div>
+					
+					<div>
+						<label for="holidayCategoryText">If you selected Other, please specify a suitable category</label><br/>
+						<input type="text" placeholder="eg. Cruise" name="holidayCategoryText" id="holidayCategoryText">
+					</div>
+
+					<div>
+						<label for="holidayDescription">Tell us about the holiday</label>
+						<span class="basicFormatting requiredForm">*</span>
+						<br/>
+						<textarea rows="10" cols="40" placeholder="Type your message here" name="holidayDescription" id="holidayDescription"></textarea>
+					</div>
+					
+					<div>
+						<label for="accommodation">What accommodation options are there?</label>
+						<span class="basicFormatting requiredForm">*</span>
+						<br/>
+						<textarea rows="4" cols="40" placeholder="eg. Private room" name="accommodation" id="accommodation"></textarea>
+					</div>
+					
+					<div>
+						<input type="checkbox" name="accommodationIncluded" value="yes">
+						Accommodation pricing is included
+					</div>
+					
+					<div>
+						<input type="checkbox" name="couponCodeGot" value="yes">
+						I have a coupon code
+					</div>
+				
+				</fieldset>
+				
+				<fieldset>
+					<legend>Legal Agreement</legend>
+					<div>
 					<br/>
-					<textarea rows="10" cols="40" placeholder="Type your message here" name="holidayDescription" id="holidayDescription"></textarea>
-				</div>
-				
-				<div>
-					<label for="accommodation">What accommodation options are there?</label>
-					<span class="basicFormatting" id="requiredForm">*</span>
+						Data submitted via this form is copyright according to our Terms and Conditions and Privacy Policy. <br/>
+						<input type="checkbox" name="legalAgreement" value="yes" id="legalAgreement">
+						I agree to the <a href="termsandconditions.html" class="externalURL">Terms and Conditions</a> and <a href="privacy.html" class="externalURL">Privacy Policy</a>
+						<span class="basicFormatting requiredForm">*</span>
+					</div>
 					<br/>
-					<textarea rows="4" cols="40" placeholder="eg. Private room" name="accommodation" id="accommodation"></textarea>
-				</div>
+				</fieldset>
 				
-				<div>
-					<input type="checkbox" name="accommodationIncluded" value="yes" id="yes">
-					Accommodation pricing is included
-				</div>
-				
-				<div>
-					<input type="checkbox" name="couponCodeGot" value="yes" id="yes">
-					I have a coupon code
-				</div>
-				
-				<div>
 				<br/>
-					Data submitted via this form is copyright according to our Terms and Conditions and Privacy Policy. <br/>
-					<input type="checkbox" name="legalAgreement" value="yes" id="legalAgreement">
-					I agree to the <a href="termsandconditions.html" class="externalURL">Terms and Conditions</a> and <a href="privacy.html" class="externalURL">Privacy Policy</a>
-					<span class="basicFormatting" id="requiredForm">*</span>
-				</div>
-				<br/>
-				
-				
 				<input type="submit" value="Click Here to Submit"> 
 				<input type="reset">   
 			</form>	

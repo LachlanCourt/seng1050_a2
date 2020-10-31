@@ -1,8 +1,8 @@
 /*
 **** Lachlan Court
 **** c3308061
-**** SENG1050 Assignment 1
-**** 17/09/2020
+**** SENG1050 Assignment 2
+**** 31/10/2020
 */
 
 body {
@@ -66,11 +66,7 @@ h3 {
 	text-transform: uppercase;
 }
 
-.capitilizeFirst {
-	text-transform: capitalize;
-}
-
-li {
+li.homepage {
 	list-style-type: none;
 }
 
@@ -217,21 +213,27 @@ span.xslBreak {
 	padding:5px;
 }
 
+
+
 span.basicFormatting {
 	background-color:#DDDDFF;
 	color: #000099;
-	margin: 0%;
-	margin-left: 0%;
 	padding: 0%;
+	margin: 0%;
 	border-radius: 0%;
 	font-size: 11pt;
 }
 
-#indent {
+span.indent {
 	margin-left: 3%;
 }
 
-#requiredForm {
+strong.indent {
+	margin-left: 3%;
+}
+
+span.requiredForm {
+	margin-left: 0%;
 	color: #FF0000;
 }
 
@@ -244,14 +246,13 @@ hr {
 	background-color: #DDDDFF;
 }
 
-.dropdown {
-}
-
-button {
+li.menuButton {
+	list-style-type: none;
 	text-decoration: none;
 	font-weight: bold;
 	color: #EEFFEE;
 	background-color: #000050;
+	padding:1%;
 	padding-bottom: 0.5%;
 	padding-top: 0.5%;
 	float:left;
@@ -259,7 +260,7 @@ button {
 	margin-bottom: 2%;
 }
 
-button:hover {
+li.menuButton:hover {
 	cursor: pointer;
 	border-radius: 5px;
 	font-size: 1.1em;
@@ -269,7 +270,6 @@ button:hover {
   display: none;
   position: absolute;
   padding-top: 0.5%;
-  padding-left: -5%;
 }
 
 .dropdown-content a {
@@ -278,7 +278,7 @@ button:hover {
   display: block;
 }
 
-.dropdown:hover .dropdown-content {display: block;}
+.menuButton:hover .dropdown-content {display: block;}
 
 
 
